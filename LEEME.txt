@@ -1,0 +1,50 @@
+CATÁLOGO COVENSEE  (misma estética azul/cian + panel de administrador)
+=======================================================================
+
+QUÉ INCLUYE
+- Tu diseño original (colores, encabezado, logo, menú de categorías, buscador, tips, detalle del producto).
+- Productos ordenados por categoría, cada uno en su sección (lo nuevo que agregue el dueño va al final de su categoría).
+- 3 productos por fila en el teléfono; fotos que se deslizan (en la tarjeta, en el detalle y en pantalla completa).
+- Carrito y Deseos DENTRO de la misma página (ya no abren otra pestaña, que los celulares bloqueaban).
+- Pago: datos de pago, método, número de referencia y captura del comprobante. La captura se guarda en tu
+  servidor y el mensaje de WhatsApp lleva el ENLACE a la captura (WhatsApp no permite adjuntar imágenes desde una página).
+- Tasa del día automática (dólar oficial BCV), o manual desde el panel.
+- Panel de administrador (ícono de la persona, arriba): agregar/editar/eliminar productos con fotos, marcar agotado,
+  poner precios, cambiar los datos de pago, tasa del día y copia de seguridad.
+
+ARCHIVOS (todo va en la RAÍZ del repositorio, sin carpeta envolvente)
+  index.html                       toda la página
+  admin.html                       solo redirige a /#admin
+  imagenes/                        logo y fotos de los productos
+  netlify/functions/catalogo.mjs   el "servidor" (productos, fotos, tasa, comprobantes)
+  package.json  .gitignore
+NO crear netlify.toml: la configuración va en el panel de Netlify.
+
+PUBLICAR
+1. GitHub: Add file → Upload files → arrastrar EL CONTENIDO de esta carpeta (reemplaza lo que ya existe) → Commit.
+2. Netlify → Project configuration → Build & deploy:
+     Build command: (vacío)   Publish directory: (vacío = raíz)   Functions directory: netlify/functions
+3. Netlify → Environment variables:
+     ADMIN_PASSWORD = la contraseña del dueño (larga, marcar "Contains secret values")
+     NODE_VERSION   = 22
+4. Esperar el deploy (Published) y comprobar:
+     tusitio.netlify.app/api/productos  → []        tusitio.netlify.app/api/tasa → la tasa del dólar
+5. Entrar con la personita, escribir la contraseña y publicar un producto de prueba.
+
+LO QUE DEBES CAMBIAR (buscar con Ctrl+F en index.html)
+- Instagram: buscar  TUUSUARIO
+- WhatsApp: buscar  584144045514  (hay uno en el encabezado y la constante MI_TELEFONO)
+- Datos de pago: se cambian desde el panel (tarjeta "Datos de pago"). Mientras no los cambies se ven los de ejemplo
+  (buscar PAGO_DEFECTO) — cámbialos antes de entregar.
+- Productos fijos: buscar  const productos = [   (precio en dólares, solo el número)
+- Categorías: 3 lugares que deben coincidir: el menú (buscar  myDropdown), la lista GRUPOS en el JavaScript,
+  y el formulario del panel (buscar  adm-cat). Además netlify/functions/catalogo.mjs → const CATEGORIAS.
+  Usar claves en minúsculas, sin tildes ni espacios (ej: sistemas-facturacion).
+- Colores: buscar  :root  (arriba).
+
+NOTAS
+- Los productos que agrega el dueño y sus fotos viven en Netlify (Blobs) de este proyecto, no en estos archivos.
+  Al cambiar el diseño (subir otro index.html) NO se pierden. No borres ni recrees el proyecto de Netlify.
+- Capturas de pago: se guardan 45 días y luego se borran solas.
+- La foto del bombillo que enviaste es muy pequeña (157x148): se ve borrosa en pantalla completa; conviene una más grande.
+- Copia de seguridad: panel → "Descargar copia" / "Restaurar copia".

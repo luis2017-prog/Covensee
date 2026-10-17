@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo COVENSEE</title>
+    <meta name="description" content="Catálogo COVENSEE: iluminación, inversores, baterías y sistemas de facturación. Valencia, Naguanagua.">
+    <!-- Importación de iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --fondo-bg: #050e1a;
+            --azul-oscuro-logo: #0a1f3a;
+            --cian-neon: #00e5ff;
+            --blanco-puro: #ffffff;
+            --alerta-red: #ff3b30;
+            --gris-texto: #8ab4f8;
+        }
+
+        body {
+            background-color: var(--fondo-bg);
+            color: var(--blanco-puro);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: relative;
+            background-image: 
+                linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-color: var(--fondo-bg);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 2px solid var(--cian-neon);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+        }
+
+        .social-icons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .social-icons a {
+            color: var(--cian-neon);
+            font-size: 30px;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .social-icons a:hover { 
+            color: var(--blanco-puro); 
+            transform: scale(1.2); 
+        }
+
+        header h1 {
+            color: var(--cian-neon);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 0 0 10px var(--cian-neon);
+        }
+
+        .logo-img {
+            max-width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 58%;
+            margin-top: 15px;
+            border: 2px solid var(--cian-neon);
+            box-shadow: 0 0 15px var(--cian-neon);
+        }
+
+        .tasa-banner {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: var(--gris-texto);
+        }
+        .tasa-banner span {
+            color: var(--cian-neon);
+            font-weight: bold;
+        }
+
+        .menu-container {
+            max-width: 1000px;
+            margin: 25px auto 0 auto;
+            padding: 0 20px;
+            display: flex; 
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn-deseos { 
+            background: transparent; 
+            color: var(--cian-neon); 
+            border: 1px solid var(--cian-neon); 
+            padding: 10px 15px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            font-size: 16px; 
+            transition: 0.3s; 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+        .btn-deseos:hover { background: var(--cian-neon); color: var(--fondo-bg); }
+
+        .badge {
+            background-color: var(--cian-neon);
+            color: var(--fondo-bg);
+            font-size: 12px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 50%;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            box-shadow: 0 0 5px var(--cian-neon);
+            display: none;
+        }
+        
+        .social-icons .badge {
+            top: -5px;
+            right: -10px;
+        }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn { 
+            background-color: transparent; 
+            color: var(--cian-neon); 
+            border: 1px solid var(--cian-neon); 
+            padding: 10px 25px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            text-transform: uppercase; 
+            font-size: 16px; 
+            transition: 0.3s; 
+        }
+        .dropbtn:hover { background: var(--cian-neon); color: var(--fondo-bg); }
+        
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background-color: var(--azul-oscuro-logo); 
+            min-width: 220px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3); 
+            z-index: 10; 
+            border: 1px solid var(--cian-neon); 
+            border-radius: 5px; 
+            margin-top: 5px; 
+        }
+        .dropdown-content button { 
+            color: var(--blanco-puro); 
+            padding: 12px 16px; 
+            display: block; 
+            width: 100%; 
+            border: none; 
+            background: none; 
+            cursor: pointer; 
+            text-align: left; 
+            text-transform: uppercase; 
+            font-size: 14px;
+        }
+        .dropdown-content button:hover { background-color: var(--cian-neon); color: var(--fondo-bg); }
+        .show { display: block; }
+
+        .search-bar { 
+            padding: 10px; 
+            flex-grow: 1;
+            background-color: var(--azul-oscuro-logo); 
+            border: 1px solid var(--cian-neon); 
+            color: var(--blanco-puro); 
+            border-radius: 5px; 
+            min-width: 200px; 
+        }
+        .search-bar::placeholder { color: #8ab4f8; opacity: 0.7; }
+
+        #catalogo-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            padding: 2rem; 
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .categoria-titulo {
+            width: 100%;
+            color: var(--cian-neon);
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 20px 0 5px 0;
+            padding: 10px 15px;
+            background: linear-gradient(90deg, rgba(0, 229, 255, 0.15) 0%, transparent 100%);
+            border-left: 4px solid var(--cian-neon);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+        }
+
+        .card { 
+            background: var(--azul-oscuro-logo); 
+            border: 1px solid var(--cian-neon); 
+            padding: 20px; 
+            width: 250px; 
+            border-radius: 12px; 
+            text-align: center; 
+            position: relative; 
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card:hover { box-shadow: 0 0 15px var(--cian-neon); transform: translateY(-5px); }
+        
+        .card-img { 
+            width: 100%; 
+            height: 180px; 
+            object-fit: contain; 
+            border-radius: 8px; 
+            margin-bottom: 10px; 
+            background-color: rgba(255,255,255,0.03);
+            cursor: pointer;
+        }
+        
+        .card h3 { font-size: 1.1rem; margin: 10px 0 5px 0; cursor: pointer; }
+        .card h3:hover { color: var(--cian-neon); }
+        
+        .card-precio {
+            color: var(--cian-neon);
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 5px 0 0 0;
+            text-shadow: 0 0 5px rgba(0, 229, 255, 0.4);
+        }
+
+        .card-precio-bs {
+            color: var(--gris-texto);
+            font-size: 0.95rem;
+            margin: 2px 0 10px 0;
+        }
+
+        .card-actions { 
+            display: flex; 
+            justify-content: space-around; 
+            align-items: center;
+            margin-top: 15px; 
+            font-size: 24px; 
+            padding: 12px 0 0 0;
+            border-top: 1px solid rgba(0, 229, 255, 0.2);
+        }
+        
+        .card-actions i { 
+            cursor: pointer; 
+            color: var(--cian-neon); 
+            transition: all 0.2s ease; 
+            padding: 5px;
+        }
+        
+        .card-actions i:hover { 
+            color: var(--blanco-puro); 
+            transform: scale(1.25); 
+        }
+        
+        .card-actions i.fa-solid {
+            color: var(--cian-neon);
+            text-shadow: 0 0 12px var(--cian-neon);
+            transform: scale(1.1);
+        }
+
+        /* Modales Generales (Fondo) */
+        .modal-anuncio {
+            display: none; 
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(5, 14, 26, 0.85); 
+            backdrop-filter: blur(5px); 
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-contenido {
+            background-color: var(--azul-oscuro-logo);
+            border: 2px solid var(--cian-neon);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.4);
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 16px;
+            position: relative;
+            animation: aparecerModal 0.4s ease;
+        }
+
+        @keyframes aparecerModal {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-contenido h2 {
+            color: var(--cian-neon);
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+            padding-bottom: 12px;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin: 20px 0;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .tip-item i {
+            color: var(--cian-neon);
+            font-size: 1.3rem;
+            margin-top: 3px;
+        }
+
+        .tip-item b {
+            color: var(--cian-neon);
+        }
+
+        .btn-cerrar-modal {
+            background-color: var(--cian-neon);
+            color: var(--fondo-bg);
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 15px;
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+        }
+
+        .btn-cerrar-modal:hover {
+            background-color: var(--blanco-puro);
+            box-shadow: 0 0 15px var(--blanco-puro);
+        }
+
+        /* ========================================================
+           NUEVO: ESTILOS PARA EL MODAL DE DETALLE DE PRODUCTO
+           ======================================================== */
+        .modal-detalle-box {
+            max-width: 700px;
+            width: 92%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 25px;
+        }
+        
+        .btn-cerrar-X {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            color: var(--gris-texto);
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-cerrar-X:hover { color: var(--alerta-red); transform: scale(1.1); }
+
+        .detalle-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 600px) {
+            .detalle-layout { grid-template-columns: 1fr; }
+        }
+
+        .galeria-contenedor {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        .imagen-principal-modal {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(0, 229, 255, 0.1);
+        }
+        .miniaturas-lista {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            width: 100%;
+            padding-bottom: 5px;
+            justify-content: center;
+        }
+        .miniatura-img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .miniatura-img:hover, .miniatura-img.activa {
+            border-color: var(--cian-neon);
+            box-shadow: 0 0 5px var(--cian-neon);
+        }
+
+        .info-contenedor {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .info-contenedor h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+            color: var(--blanco-puro);
+        }
+        .info-contenedor p {
+            color: var(--gris-texto);
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin: 0 0 15px 0;
+        }
+        .precios-modal-box {
+            background: rgba(0, 229, 255, 0.05);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid var(--cian-neon);
+            margin-bottom: 15px;
+        }
+        .modal-acciones-bar {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            border-top: 1px solid rgba(0, 229, 255, 0.1);
+            padding-top: 15px;
+        }
+        .btn-modal-agregar {
+            flex-grow: 1;
+            background: var(--cian-neon);
+            color: var(--fondo-bg);
+            border: none;
+            padding: 12px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .btn-modal-agregar:hover { background: white; }
+        .btn-modal-favorito {
+            background: transparent;
+            border: 1px solid var(--cian-neon);
+            color: var(--cian-neon);
+            width: 45px;
+            height: 45px;
+            font-size: 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+        .btn-modal-favorito:hover { background: rgba(0, 229, 255, 0.1); color: white; }
+        /* ---------- PANEL DE ADMINISTRADOR ---------- */
+        #adminOverlay { position: fixed; inset: 0; z-index: 5000; background: var(--oscuro); color: #fff; overflow-y: auto; font-family: var(--serif); font-size: 1.1rem; }
+        .adm-top { position: sticky; top: 0; z-index: 2; background: #000; border-bottom: 1px solid var(--dorado); padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+        .adm-top strong { font-size: 1.15rem; letter-spacing: 4px; text-transform: uppercase; color: var(--dorado-claro); }
+        .adm-top div { display: flex; gap: 8px; flex-shrink: 0; }
+        .adm-wrap { max-width: 720px; margin: 0 auto; padding: 24px 16px 70px; }
+        .adm-card { background: var(--carbon); border: 1px solid #2c2622; border-radius: 6px; padding: 22px; margin-bottom: 26px; }
+        .adm-card h2 { margin: 0 0 6px; font-size: 1.6rem; color: var(--dorado-claro); letter-spacing: 2px; text-transform: uppercase; }
+        .adm-sub { margin: 0 0 20px; color: #bbb; font-style: italic; }
+        .adm-card label { display: block; font-family: var(--sans); font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--plata); margin: 18px 0 6px; }
+        .adm-card label small { text-transform: none; letter-spacing: 0; color: #999; font-size: 0.75rem; }
+        .adm-card input[type=text], .adm-card input[type=password], .adm-card textarea, .adm-card select {
+            width: 100%; padding: 13px 14px; font-size: 1rem; font-family: var(--sans); color: #fff;
+            background: #0d0b0a; border: 1px solid #3a322c; border-radius: 3px;
+        }
+        .adm-card input:focus, .adm-card textarea:focus, .adm-card select:focus { outline: 2px solid var(--dorado); border-color: var(--dorado); }
+        .adm-card textarea { min-height: 110px; resize: vertical; }
+        .adm-btn { font-family: var(--sans); cursor: pointer; border: 1px solid transparent; border-radius: 3px; padding: 14px 24px; font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: 0.25s; }
+        .adm-oro { background: var(--dorado); color: #fff; }
+        .adm-oro:hover:not(:disabled) { background: var(--dorado-claro); color: #000; }
+        .adm-borde { background: transparent; border-color: #6b6159; color: #fff; }
+        .adm-borde:hover { border-color: var(--dorado-claro); color: var(--dorado-claro); }
+        .adm-peligro { background: transparent; border-color: #6b3a35; color: #ff8a7d; }
+        .adm-peligro:hover { background: #e74c3c; color: #fff; border-color: #e74c3c; }
+        .adm-btn:disabled { opacity: 0.55; cursor: wait; }
+        .adm-chico { padding: 9px 14px; font-size: 0.62rem; }
+        .adm-fila { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+        .adm-error { color: #ff8a7d; font-family: var(--sans); font-size: 0.85rem; margin: 12px 0 0; min-height: 1.2em; }
+        .adm-fotos { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; margin-top: 4px; }
+        .adm-foto { position: relative; aspect-ratio: 1; border: 1px solid #3a322c; border-radius: 3px; overflow: hidden; background: #000; }
+        .adm-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .adm-foto button { position: absolute; top: 4px; right: 4px; width: 28px; height: 28px; border-radius: 50%; border: none; background: rgba(0,0,0,0.8); color: #fff; font-size: 1.2rem; line-height: 1; cursor: pointer; padding: 0 0 2px; }
+        .adm-foto .adm-principal { position: absolute; left: 0; bottom: 0; right: 0; background: rgba(184,134,11,0.9); font-family: var(--sans); font-size: 0.55rem; letter-spacing: 1px; text-align: center; padding: 3px; text-transform: uppercase; }
+        .adm-agregar { aspect-ratio: 1; border: 1px dashed var(--dorado); border-radius: 3px; background: transparent; color: var(--dorado-claro); font-family: var(--sans); font-size: 0.65rem; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+        .adm-agregar span { font-size: 1.8rem; line-height: 1; }
+        .adm-agregar:hover { background: rgba(184,134,11,0.12); }
+        .adm-item { display: flex; gap: 14px; align-items: center; padding: 14px 0; border-top: 1px solid #2c2622; }
+        .adm-item:first-child { border-top: none; }
+        .adm-item img { width: 68px; height: 68px; object-fit: cover; border-radius: 3px; flex-shrink: 0; background: #000; }
+        .adm-datos { flex: 1; min-width: 0; }
+        .adm-datos strong { display: block; font-size: 1.15rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .adm-datos span { font-family: var(--sans); font-size: 0.72rem; color: #aaa; }
+        .adm-acciones { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+        .adm-vacio { text-align: center; color: #999; font-style: italic; padding: 20px 0 4px; }
+        .adm-nota { background: rgba(184,134,11,0.12); border-left: 3px solid var(--dorado); padding: 12px 14px; font-size: 0.98rem; color: #ddd; margin-top: 18px; }
+        #adm-toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 30px); opacity: 0; pointer-events: none; transition: 0.3s; background: #2e9e5b; color: #fff; font-family: var(--sans); font-size: 0.85rem; padding: 14px 22px; border-radius: 4px; z-index: 5100; max-width: 90vw; text-align: center; }
+        #adm-toast.mostrar { opacity: 1; transform: translate(-50%, 0); }
+        #adm-toast.mal { background: #e74c3c; }
+        @media (max-width: 520px) { .adm-top { padding: 12px 14px; } .adm-top strong { font-size: 0.95rem; letter-spacing: 2px; } .adm-item { flex-wrap: wrap; } .adm-acciones { width: 100%; justify-content: flex-start; } }
+
+
+        /* ========================================================
+           AÑADIDOS: mismas líneas visuales (azul oscuro + cian neón)
+           ======================================================== */
+        .card-media { position: relative; height: 180px; border-radius: 8px; overflow: hidden; margin-bottom: 10px; background-color: rgba(255,255,255,0.03); }
+        .slides { display: flex; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+        .slides::-webkit-scrollbar { display: none; }
+        .slides .card-img { flex: 0 0 100%; width: 100%; height: 100%; margin: 0; border-radius: 0; background: none; scroll-snap-align: center; scroll-snap-stop: always; }
+        .contador-fotos { position: absolute; right: 6px; bottom: 6px; z-index: 3; background: rgba(5,14,26,0.85); color: var(--cian-neon); border: 1px solid rgba(0,229,255,0.5); font-size: 0.65rem; font-weight: bold; padding: 2px 8px; border-radius: 10px; pointer-events: none; }
+        .sello-agotado { position: absolute; left: 50%; top: 45%; transform: translate(-50%,-50%) rotate(-8deg); z-index: 4; pointer-events: none; background: rgba(5,14,26,0.9); color: #fff; border: 2px solid var(--alerta-red); padding: 8px 22px; border-radius: 4px; font-weight: bold; font-size: 1rem; letter-spacing: 4px; text-transform: uppercase; }
+        .card.agotado .slides img { filter: grayscale(0.9) brightness(0.65); }
+        .card.agotado .card-actions i { opacity: 0.25; cursor: not-allowed; }
+        .card-precio.consultar { font-size: 1rem; }
+        .sin-resultados { width: 100%; text-align: center; color: var(--gris-texto); padding: 40px 0; }
+
+        /* Detalle del producto: fotos deslizables */
+        .modal-detalle-box { max-height: 92vh; overflow-y: auto; }
+        .modal-slides { display: flex; width: 100%; height: 250px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid rgba(0, 229, 255, 0.1); }
+        .modal-slides::-webkit-scrollbar { display: none; }
+        .modal-slides img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: contain; scroll-snap-align: center; scroll-snap-stop: always; cursor: zoom-in; }
+        .btn-modal-agregar:disabled { opacity: 0.45; cursor: not-allowed; }
+
+        /* Carrito flotante */
+        .carrito-float { position: fixed; right: 18px; bottom: 18px; width: 58px; height: 58px; border-radius: 50%; background: var(--azul-oscuro-logo); color: var(--cian-neon); border: 2px solid var(--cian-neon); box-shadow: 0 0 14px rgba(0,229,255,0.5); font-size: 24px; display: flex; align-items: center; justify-content: center; z-index: 900; cursor: pointer; padding: 0; transition: 0.3s; }
+        .carrito-float:hover { background: var(--cian-neon); color: var(--fondo-bg); }
+        .carrito-float .badge { top: -6px; right: -6px; font-size: 13px; padding: 3px 8px; border-radius: 12px; background: var(--alerta-red); color: #fff; box-shadow: none; }
+        .carrito-float.salto { animation: salto 0.45s; }
+        @keyframes salto { 40% { transform: scale(1.25); } }
+
+        #toast { position: fixed; left: 50%; bottom: 90px; transform: translate(-50%, 30px); opacity: 0; pointer-events: none; transition: 0.3s; background: var(--azul-oscuro-logo); border: 1px solid var(--cian-neon); color: #fff; padding: 12px 20px; border-radius: 8px; z-index: 20000; max-width: 90vw; text-align: center; font-size: 0.9rem; box-shadow: 0 0 15px rgba(0,229,255,0.3); }
+        #toast.mostrar { opacity: 1; transform: translate(-50%, 0); }
+        #toast.mal { border-color: var(--alerta-red); }
+
+        /* Carrito / Deseos dentro de la misma página (antes abría otra pestaña) */
+        .lista-overlay { display: none; position: fixed; inset: 0; z-index: 9998; background: var(--fondo-bg); overflow-y: auto; }
+        .lista-overlay.abierto { display: block; }
+        .lista-wrap { max-width: 850px; margin: auto; padding: 1.2rem 1rem 3rem; }
+        .lista-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; border-bottom: 2px solid var(--cian-neon); padding-bottom: 10px; margin-bottom: 16px; }
+        .lista-top h1 { color: var(--cian-neon); text-transform: uppercase; letter-spacing: 2px; font-size: 1.3rem; margin: 0; }
+        .lista-cerrar { background: transparent; color: var(--cian-neon); border: 1px solid var(--cian-neon); border-radius: 6px; padding: 8px 14px; font-size: 0.9rem; cursor: pointer; white-space: nowrap; }
+        .lista-cerrar:hover { background: var(--cian-neon); color: var(--fondo-bg); }
+        .item-list { list-style: none; padding: 0; margin: 0; }
+        .item { background: var(--azul-oscuro-logo); border: 1px solid var(--cian-neon); margin-bottom: 12px; padding: 12px; border-radius: 8px; display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .item img { width: 56px; height: 56px; object-fit: contain; background: rgba(255,255,255,0.05); border-radius: 6px; flex: none; }
+        .item-info { flex: 1; min-width: 140px; }
+        .item-titulo { font-size: 1.05rem; font-weight: bold; }
+        .item-precio { color: var(--cian-neon); font-size: 0.92rem; margin-top: 4px; }
+        .item-precio-bs { color: var(--gris-texto); font-size: 0.85rem; margin-top: 2px; }
+        .controles-cant { display: flex; align-items: center; gap: 10px; background: rgba(0, 229, 255, 0.1); padding: 5px 10px; border-radius: 5px; border: 1px solid var(--cian-neon); }
+        .btn-cant { background: transparent; color: var(--cian-neon); border: none; font-size: 20px; font-weight: bold; cursor: pointer; padding: 0 6px; }
+        .btn-cant:hover { color: white; }
+        .btn-borrar { background: var(--alerta-red); color: white; border: none; padding: 9px 12px; border-radius: 5px; cursor: pointer; }
+        .btn-borrar:hover { background: #c92a20; }
+        .btn-mini { background: var(--cian-neon); color: var(--fondo-bg); border: none; padding: 9px 12px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .total-box { background: var(--azul-oscuro-logo); border: 2px solid var(--cian-neon); padding: 18px; border-radius: 8px; text-align: right; margin-top: 18px; box-shadow: 0 0 8px rgba(0, 229, 255, 0.4); }
+        .total-usd { font-size: 1.5rem; font-weight: bold; color: var(--cian-neon); }
+        .total-bs { font-size: 1.1rem; color: var(--gris-texto); margin-top: 5px; }
+        .pago-box { background: var(--azul-oscuro-logo); border: 1px solid var(--cian-neon); padding: 18px; border-radius: 8px; margin-top: 18px; }
+        .pago-box h3 { color: var(--cian-neon); margin: 0 0 12px; border-bottom: 1px solid rgba(0, 229, 255, 0.3); padding-bottom: 8px; font-size: 1.1rem; }
+        .datos-pago { background: rgba(0,0,0,0.25); padding: 10px 12px; border-radius: 5px; margin-bottom: 14px; border-left: 3px solid var(--cian-neon); font-size: 0.9rem; }
+        .datos-pago p { margin: 5px 0; overflow-wrap: anywhere; }
+        .metodos-pago { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 14px; }
+        .metodo-label { background: rgba(255,255,255,0.05); border: 1px solid var(--gris-texto); padding: 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .metodo-label:hover { border-color: var(--cian-neon); }
+        .campo-pago { display: block; width: 100%; box-sizing: border-box; background: var(--fondo-bg); color: #fff; border: 1px solid var(--cian-neon); border-radius: 5px; padding: 11px; font-size: 1rem; margin: 6px 0 14px; }
+        .campo-pago-etq { font-size: 0.85rem; color: var(--gris-texto); }
+        .file-input-box { background: rgba(0, 229, 255, 0.05); padding: 14px; border-radius: 5px; border: 1px dashed var(--cian-neon); text-align: center; }
+        .file-input-box p { margin: 0 0 10px; font-size: 0.9rem; color: var(--gris-texto); }
+        .btn-subir { background: transparent; color: var(--cian-neon); border: 1px solid var(--cian-neon); border-radius: 6px; padding: 11px 18px; font-size: 0.95rem; cursor: pointer; }
+        .btn-subir:hover { background: var(--cian-neon); color: var(--fondo-bg); }
+        #comp-preview-box { margin-top: 12px; display: none; }
+        #comp-preview-box img { max-width: 100%; max-height: 260px; border-radius: 6px; border: 1px solid var(--cian-neon); }
+        .btn-accion { background: var(--cian-neon); color: var(--fondo-bg); font-weight: bold; border: none; padding: 15px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 20px; width: 100%; box-sizing: border-box; }
+        .btn-accion:hover:not(:disabled) { background: white; }
+        .btn-accion:disabled { opacity: 0.6; cursor: wait; }
+        .empty-msg { font-size: 1.1rem; color: var(--gris-texto); margin: 50px 0 20px; text-align: center; }
+
+        /* Galería de pantalla completa (fotos deslizables) */
+        #overlay { display: none; position: fixed; inset: 0; background: rgba(5,14,26,0.97); flex-direction: column; justify-content: center; align-items: center; z-index: 10000; cursor: zoom-out; }
+        #overlay.abierto { display: flex; }
+        .cerrar-img { position: absolute; top: 16px; right: 16px; width: 48px; height: 48px; border-radius: 50%; background: rgba(10,31,58,0.9); color: #fff; border: 1px solid var(--cian-neon); font-size: 2rem; line-height: 1; cursor: pointer; z-index: 10001; display: flex; align-items: center; justify-content: center; padding: 0 0 4px; }
+        .cerrar-img:hover { background: var(--cian-neon); color: var(--fondo-bg); }
+        .gal-slides { width: 100%; flex: 1; min-height: 0; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+        .gal-slides::-webkit-scrollbar { display: none; }
+        .gal-slide { flex: 0 0 100%; height: 100%; display: flex; align-items: center; justify-content: center; scroll-snap-align: center; scroll-snap-stop: always; padding: 70px 10px 10px; box-sizing: border-box; }
+        .gal-slide img { max-width: 100%; max-height: 100%; object-fit: contain; border: 1px solid var(--cian-neon); background: #fff; }
+        .gal-thumbs { flex: none; display: flex; gap: 8px; justify-content: center; padding: 10px 10px 18px; max-width: 100%; overflow-x: auto; cursor: default; }
+        .gal-thumbs button { flex: none; width: 56px; height: 56px; padding: 0; border: 2px solid transparent; background: #fff; cursor: pointer; opacity: 0.55; transition: 0.25s; }
+        .gal-thumbs button.on { opacity: 1; border-color: var(--cian-neon); }
+        .gal-thumbs img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .gal-cuenta { position: absolute; top: 28px; left: 18px; z-index: 10001; color: #fff; font-weight: bold; font-size: 0.8rem; letter-spacing: 2px; background: rgba(10,31,58,0.9); padding: 6px 12px; border-radius: 14px; border: 1px solid rgba(0,229,255,0.5); }
+        .gal-flecha { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10001; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--cian-neon); background: rgba(10,31,58,0.9); color: #fff; font-size: 1.8rem; line-height: 1; cursor: pointer; padding: 0 0 4px; }
+        .gal-flecha:hover { background: var(--cian-neon); color: var(--fondo-bg); }
+        .gal-flecha.ant { left: 12px; } .gal-flecha.sig { right: 12px; }
+        @media (hover: none) { .gal-flecha { display: none; } }
+        #overlay.una .gal-flecha, #overlay.una .gal-cuenta, #overlay.una .gal-thumbs { display: none; }
+
+        /* Panel de administrador (colores de COVENSEE) */
+        #adminOverlay { --dorado: #00b8d4; --dorado-claro: #00e5ff; --oscuro: #050e1a; --carbon: #0a1f3a; --plata: #cfe8ff; --blanco: #fff; --serif: 'Segoe UI', sans-serif; --sans: 'Segoe UI', sans-serif; }
+        #adminOverlay .adm-oro { color: #04121f; font-weight: 700; }
+        #adminOverlay .adm-card { border-color: rgba(0,229,255,0.25); }
+        #adminOverlay .adm-nota { background: rgba(0,229,255,0.08); }
+
+        /* ---------- TELÉFONO: encabezado ordenado y 3 productos por fila ---------- */
+        @media (max-width: 600px) {
+            header { padding: 1rem 0.8rem 1.4rem; }
+            .social-icons { position: static; justify-content: center; gap: 22px; margin-bottom: 12px; }
+            .social-icons a { font-size: 26px; }
+            header h1 { font-size: 2rem; letter-spacing: 3px; }
+            .logo-img { height: 100px; }
+            .menu-container { padding: 0 12px; gap: 10px; margin-top: 18px; }
+            .search-bar { flex-basis: 100%; min-width: 0; box-sizing: border-box; order: 3; }
+            #catalogo-container { padding: 10px 8px; gap: 8px; }
+            .card { width: calc((100% - 16px) / 3); box-sizing: border-box; padding: 7px; border-radius: 10px; }
+            .card:hover { transform: none; }
+            .card-media { height: auto; aspect-ratio: 1 / 1; margin-bottom: 6px; border-radius: 6px; }
+            .card h3 { font-size: 0.74rem; line-height: 1.15; margin: 4px 0 3px; }
+            .card-precio { font-size: 0.9rem; margin-top: 2px; }
+            .card-precio.consultar { font-size: 0.7rem; }
+            .card-precio-bs { font-size: 0.64rem; margin: 1px 0 4px; overflow-wrap: anywhere; }
+            .card-actions { font-size: 17px; margin-top: 6px; padding-top: 6px; }
+            .card-actions i { padding: 3px; }
+            .categoria-titulo { font-size: 0.95rem; letter-spacing: 2px; margin: 14px 0 2px; padding: 8px 10px; }
+            .contador-fotos { right: 4px; bottom: 4px; font-size: 0.55rem; padding: 1px 6px; }
+            .sello-agotado { font-size: 0.55rem; letter-spacing: 2px; padding: 4px 8px; border-width: 1px; }
+            .carrito-float { right: 14px; bottom: 14px; }
+            .lista-top h1 { font-size: 1.05rem; }
+        }
+
+        [hidden] { display: none !important; }
+        #adminOverlay { z-index: 10002; }
+        #adminOverlay .adm-card label.adm-radio { font-family: var(--sans); font-size: 1rem; letter-spacing: 0; text-transform: none; color: #fff; margin: 12px 0; }
+    </style>
+</head>
+<body>
+
+    <div id="anuncioTipsModal" class="modal-anuncio">
+        <div class="modal-contenido">
+            <h2>💡 Tips para tu Compra</h2>
+            <div class="tip-item">
+                <i class="fas fa-search-plus"></i>
+                <div><b>Ver detalles:</b> Haz clic en la foto o título de cualquier producto para ver más imágenes y su descripción extendida. Desliza hacia los lados para pasar las fotos.</div>
+            </div>
+            <div class="tip-item">
+                <i class="fas fa-shopping-cart"></i>
+                <div><b>Agrega al Carrito:</b> Selecciona tus productos y cantidades desde la lista o la vista detallada.</div>
+            </div>
+            <div class="tip-item">
+                <i class="fab fa-whatsapp"></i>
+                <div><b>Envía tu pedido:</b> Finaliza en tu carrito, sube la captura de tu pago y envía la orden de compra con su tasa en Bs. directo a nuestro WhatsApp.</div>
+            </div>
+            <button class="btn-cerrar-modal" onclick="cerrarAnuncio()">¡Entendido, ir al Catálogo!</button>
+        </div>
+    </div>
+
+    <!-- POP-UP DE DETALLE DE PRODUCTO -->
+    <div id="detalleProductoModal" class="modal-anuncio">
+        <div class="modal-contenido modal-detalle-box">
+            <button class="btn-cerrar-X" onclick="cerrarDetalle()" aria-label="Cerrar">&times;</button>
+            <div class="detalle-layout">
+                <div class="galeria-contenedor">
+                    <div id="modal-slides" class="modal-slides"></div>
+                    <div id="modal-miniaturas" class="miniaturas-lista"></div>
+                </div>
+                <div class="info-contenedor">
+                    <div>
+                        <h3 id="modal-titulo">Nombre del Producto</h3>
+                        <p id="modal-descripcion">Descripción corta del producto.</p>
+                        <div class="precios-modal-box">
+                            <div id="modal-precio-usd" class="card-precio">$0.00</div>
+                            <div id="modal-precio-bs" class="card-precio-bs">Bs. 0.00</div>
+                        </div>
+                    </div>
+                    <div class="modal-acciones-bar">
+                        <button id="modal-btn-carrito" class="btn-modal-agregar">
+                            <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                        </button>
+                        <button id="modal-btn-deseos" class="btn-modal-favorito" aria-label="Deseos">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="social-icons">
+            <a href="https://wa.me/584144045514" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/TUUSUARIO" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a onclick="compartirCatalogo()" title="Compartir"><i class="fas fa-share-alt"></i></a>
+            <a onclick="abrirLista('carrito')" title="Ver Carrito">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="badge-carrito" class="badge">0</span>
+            </a>
+            <a onclick="abrirAdmin()" title="Administrador" aria-label="Acceso de administrador"><i class="fas fa-user"></i></a>
+        </div>
+        <h1>COVENSEE</h1>
+        <img src="imagenes/logoconvensee.jpg" alt="Logo COVENSEE" class="logo-img" onerror="this.src='https://via.placeholder.com/120/0a1f3a/00e5ff?text=LOGO'">
+        <p>Valencia, Naguanagua</p>
+        <div class="tasa-banner"><span id="tasa-label" style="color:inherit;font-weight:normal">Tasa Oficial BCV:</span> <span id="tasa-actual-display">Bs. --</span></div>
+    </header>
+
+    <div class="menu-container">
+        <button class="btn-deseos" onclick="abrirLista('deseados')">
+            <i class="fas fa-heart"></i> Deseos
+            <span id="badge-deseados" class="badge">0</span>
+        </button>
+        <div class="dropdown">
+            <button onclick="toggleMenu()" class="dropbtn">Categorías ▼</button>
+            <div id="myDropdown" class="dropdown-content">
+                <button onclick="filtrar('todas')">Todas</button>
+                <button onclick="filtrar('iluminacion')">Iluminación</button>
+                <button onclick="filtrar('espejos')">Espejos</button>
+                <button onclick="filtrar('inversores')">Inversores</button>
+                <button onclick="filtrar('baterias')">Baterías</button>
+                <button onclick="filtrar('hogar')">Hogar</button>
+                <button onclick="filtrar('herramientas')">Herramientas</button>
+                <button onclick="filtrar('sistemas-facturacion')">Sistemas de Facturación</button>
+            </div>
+        </div>
+        <input type="text" id="buscador" oninput="buscarProducto()" placeholder="Buscar producto por nombre..." class="search-bar">
+    </div>
+
+    <main id="catalogo-container"></main>
+
+    <button type="button" id="carritoFlot" class="carrito-float" onclick="abrirLista('carrito')" aria-label="Ver mi carrito">
+        <i class="fas fa-shopping-cart"></i><span id="badge-flot" class="badge">0</span>
+    </button>
+
+    <!-- CARRITO / DESEOS (en la misma página) -->
+    <div id="listaOverlay" class="lista-overlay" role="dialog" aria-modal="true">
+        <div class="lista-wrap">
+            <div class="lista-top">
+                <h1 id="listaTitulo"></h1>
+                <button class="lista-cerrar" onclick="cerrarLista()">Cerrar ×</button>
+            </div>
+            <div id="listaContenido"></div>
+        </div>
+    </div>
+
+    <div id="toast" role="status"></div>
+
+    <!-- GALERÍA DE PANTALLA COMPLETA -->
+    <div id="overlay" onclick="cerrarImagen()">
+        <button class="cerrar-img" onclick="cerrarImagen()" aria-label="Cerrar imagen">&times;</button>
+        <span class="gal-cuenta" id="galCuenta"></span>
+        <button class="gal-flecha ant" id="galAnt" aria-label="Foto anterior">&#8249;</button>
+        <button class="gal-flecha sig" id="galSig" aria-label="Foto siguiente">&#8250;</button>
+        <div class="gal-slides" id="galSlides"></div>
+        <div class="gal-thumbs" id="galThumbs"></div>
+    </div>
+
+    <div id="adminOverlay" role="dialog" aria-modal="true" aria-label="Administrador" hidden>
+        <div class="adm-top">
+            <strong>Administrador</strong>
+            <div>
+                <button class="adm-btn adm-borde adm-chico" id="adm-salir" hidden>Salir</button>
+                <button class="adm-btn adm-borde adm-chico" id="adm-cerrar" aria-label="Cerrar panel">Cerrar &times;</button>
+            </div>
+        </div>
+        <div class="adm-wrap">
+            <section class="adm-card" id="adm-login" style="max-width:420px; margin: 30px auto;">
+                <h2>Acceso</h2>
+                <p class="adm-sub">Escribe la contraseña para agregar o cambiar productos.</p>
+                <form id="adm-formLogin">
+                    <label for="adm-clave">Contraseña</label>
+                    <input type="password" id="adm-clave" autocomplete="current-password" required>
+                    <p class="adm-error" id="adm-errLogin" role="alert"></p>
+                    <div class="adm-fila"><button class="adm-btn adm-oro" id="adm-btnEntrar" type="submit">Entrar</button></div>
+                </form>
+            </section>
+
+            <div id="adm-panel" hidden>
+                <section class="adm-card">
+                    <h2>Tasa del día</h2>
+                    <p class="adm-sub">Con la tasa, cada precio en dólares se muestra también en bolívares.</p>
+                    <p class="adm-tasa-actual" id="adm-tasaActual"></p>
+                    <form id="adm-formTasa">
+                        <label class="adm-radio"><input type="radio" name="adm-modo" value="auto"><span>Automática — dólar oficial BCV, se actualiza sola</span></label>
+                        <label class="adm-radio"><input type="radio" name="adm-modo" value="manual"><span>La pongo yo</span></label>
+                        <div id="adm-tasaManualBox" hidden>
+                            <label for="adm-tasaManual">1 $ = cuántos Bs</label>
+                            <input type="text" id="adm-tasaManual" inputmode="decimal" maxlength="14" placeholder="Ej: 880,50">
+                        </div>
+                        <p class="adm-error" id="adm-errTasa" role="alert"></p>
+                        <div class="adm-fila" style="margin-top:14px"><button type="submit" class="adm-btn adm-oro" id="adm-btnTasa">Guardar tasa</button></div>
+                    </form>
+                </section>
+
+                <section class="adm-card">
+                    <h2>Datos de pago</h2>
+                    <p class="adm-sub">Lo que el cliente ve en su carrito para pagarte. Déjalo vacío si no usas ese método.</p>
+                    <form id="adm-formPago">
+                        <label for="adm-payMovil">Pago móvil <small>(teléfono | cédula | banco)</small></label>
+                        <input type="text" id="adm-payMovil" maxlength="200" placeholder="Ej: 0414-0000000 | V-12345678 | Banco Mercantil">
+                        <label for="adm-payTransf">Transferencia <small>(correo o cuenta | titular)</small></label>
+                        <input type="text" id="adm-payTransf" maxlength="200" placeholder="Ej: correo@ejemplo.com | Nombre Apellido">
+                        <label for="adm-payBinance">Binance Pay <small>(ID)</small></label>
+                        <input type="text" id="adm-payBinance" maxlength="200" placeholder="Ej: 123456789">
+                        <div class="adm-fila" style="margin-top:14px"><button type="submit" class="adm-btn adm-oro" id="adm-btnPago">Guardar datos de pago</button></div>
+                    </form>
+                </section>
+
+                <section class="adm-card">
+                    <h2 id="adm-tituloForm">Nuevo producto</h2>
+                    <p class="adm-sub" id="adm-subForm">Llena los datos y toca “Publicar”. Aparece en el catálogo al instante.</p>
+                    <form id="adm-formProducto" novalidate>
+                        <label for="adm-nombre">Título</label>
+                        <input type="text" id="adm-nombre" maxlength="80" placeholder="Ej: Bombillo LED 12W">
+
+                        <label for="adm-desc">Descripción <small>(opcional)</small></label>
+                        <textarea id="adm-desc" maxlength="400" placeholder="Cuenta de qué trata el producto, características, medidas…"></textarea>
+
+                        <label for="adm-precio">Precio en dólares $ <small>(opcional — si lo dejas vacío dice “Consultar precio”)</small></label>
+                        <input type="text" id="adm-precio" inputmode="decimal" maxlength="20" placeholder="Ej: 15.50">
+
+                        <label for="adm-cat">Categoría</label>
+                        <select id="adm-cat">
+                            <option value="">Elige una…</option>
+                            <option value="iluminacion">Iluminación</option>
+                            <option value="espejos">Espejos</option>
+                            <option value="inversores">Inversores</option>
+                            <option value="baterias">Baterías</option>
+                            <option value="hogar">Hogar</option>
+                            <option value="herramientas">Herramientas</option>
+                            <option value="sistemas-facturacion">Sistemas de Facturación</option>
+                        </select>
+
+                        <label>Fotos <small>(hasta 4 · la primera es la principal)</small></label>
+                        <div class="adm-fotos" id="adm-fotos"></div>
+                        <input type="file" id="adm-archivos" accept="image/*" multiple hidden>
+
+                        <p class="adm-error" id="adm-errForm" role="alert"></p>
+                        <div class="adm-fila">
+                            <button type="submit" class="adm-btn adm-oro" id="adm-btnGuardar">Publicar producto</button>
+                            <button type="button" class="adm-btn adm-borde" id="adm-btnCancelar" hidden>Cancelar edición</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="adm-card">
+                    <h2>Mis productos</h2>
+                    <p class="adm-sub">Todo lo que se ve en tu catálogo. Marca “Agotado” cuando se acabe, o elimina lo que ya no vendes.</p>
+                    <div id="adm-lista"></div>
+                </section>
+
+                <section class="adm-card">
+                    <h2>Copia de seguridad</h2>
+                    <p class="adm-sub">Guarda en tu teléfono o computador una copia de todos tus productos con sus fotos. Si algún día se pierde algo, puedes volver a cargarla.</p>
+                    <div class="adm-fila" style="margin-top:0">
+                        <button type="button" class="adm-btn adm-oro" id="adm-btnCopia">Descargar copia</button>
+                        <button type="button" class="adm-btn adm-borde" id="adm-btnRestaurar">Restaurar copia</button>
+                        <input type="file" id="adm-archivoCopia" accept=".json,application/json" hidden>
+                    </div>
+                    <p class="adm-sub" id="adm-estadoCopia" style="margin:14px 0 0"></p>
+                </section>
+            </div>
+        </div>
+        <div id="adm-toast" role="status"></div>
+
+    <script>
+        /* ========================================================
+           DATOS: productos fijos (los que vienen "de fábrica").
+           Los que agrega el dueño desde el panel (ícono de la persona)
+           se guardan en el servidor y se suman automáticamente.
+           cat: iluminacion | espejos | inversores | baterias | hogar | herramientas | sistemas-facturacion
+           precio: en dólares ($), solo el número. Vacío = "Consultar precio".
+           ======================================================== */
+        const productos = [
+            { id: 'p1', cat: ['iluminacion'], nombre: 'Bombillo Blanco LED', precio: '5.00',
+              imgs: ['imagenes/bombillo-blanco-led.jpg'],
+              desc: 'Bombillo LED de alta eficiencia energética, luz blanca fría ideal para interiores y locales comerciales. Larga vida útil.' },
+            { id: 'p2', cat: ['iluminacion'], nombre: 'Lámpara Mata Moscas', precio: '18.50',
+              imgs: ['imagenes/lampara-mata-moscas.jpg'],
+              desc: 'Lámpara protectora mata moscas y zancudos mediante atracción por luz UV ultravioleta. Segura y libre de químicos nocivos.' },
+            { id: 'p3', cat: ['inversores'], nombre: 'Inversor Azul 6kVA', precio: '450.00',
+              imgs: ['imagenes/inversor-azul-1.jpg', 'imagenes/inversor-azul-2.jpg', 'imagenes/inversor-azul-3.jpg'],
+              desc: 'Inversor de onda senoidal pura de 6 KVA. Ideal para sistemas de respaldo solar doméstico o empresarial a 48V.' },
+            { id: 'p4', cat: ['baterias'], nombre: 'Batería Punto Litio', precio: '120.00',
+              imgs: ['imagenes/bateria-punto-litio.jpg'],
+              desc: 'Batería de Litio de alta descarga profunda. Excelente ciclo de vida útil diseñada para bancos de energía de respaldo e inversores.' },
+            { id: 'p5', cat: ['sistemas-facturacion'], nombre: 'Sistema Plade Impulsa', precio: '85.00',
+              imgs: ['imagenes/sistema-plade-impulsa.jpg'],
+              desc: 'Sistema PLADE Impulsa homologado para facturación fiscal y control administrativo. Optimiza inventario y ventas con facilidad.' }
+        ];
+
+        // Categorías en el orden en que aparecen en el catálogo: [clave, nombre, ícono]
+        const GRUPOS = [
+            ['iluminacion', 'Iluminación', 'fa-lightbulb'],
+            ['espejos', 'Espejos', 'fa-vector-square'],
+            ['inversores', 'Inversores', 'fa-bolt'],
+            ['baterias', 'Baterías', 'fa-car-battery'],
+            ['hogar', 'Hogar', 'fa-house'],
+            ['herramientas', 'Herramientas', 'fa-screwdriver-wrench'],
+            ['sistemas-facturacion', 'Sistemas de Facturación', 'fa-cash-register']
+        ];
+
+        const MI_TELEFONO = '584144045514';
+        const NOMBRE_TIENDA = 'COVENSEE';
+        // Datos de pago que se muestran si el dueño todavía no los cambió desde el panel
+        const PAGO_DEFECTO = {
+            pagoMovil: '0414-4045514 | V-12345678 | Banco Mercantil',
+            transferencia: 'ejemplo@correo.com | Nombre Apellido',
+            binance: '123456789'
+        };
+        const PLACEHOLDER = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="200" height="200" fill="#0a1f3a"/><text x="100" y="108" fill="#00e5ff" font-family="sans-serif" font-size="16" text-anchor="middle">Sin foto</text></svg>');
+
+        let porId = Object.fromEntries(productos.map(p => [p.id, p]));
+        const $ = (id) => document.getElementById(id);
+        const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        const fmt = (n) => n.toLocaleString('es-VE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+        /* ---------- Ajustes del servidor (agotados, ocultos, precios, pago) y tasa ---------- */
+        let ajustes = { ocultos: [], agotados: [], precios: {}, pago: null, tasaModo: 'auto', tasaManual: null };
+        let tasa = null; // { valor, fuente, fecha }
+        let listaDin = [];
+        const agotado = (id) => ajustes.agotados.includes(id);
+        const disponible = (id) => !!porId[id] && !ajustes.ocultos.includes(id) && !agotado(id);
+        const precioDe = (p) => String(ajustes.precios[p.id] ?? p.precio ?? '').trim();
+        const precioNum = (p) => { const n = parseFloat(precioDe(p).replace(',', '.').replace(/[^\d.]/g, '')); return isFinite(n) && n > 0 ? n : 0; };
+        const aBs = (usd) => (tasa && tasa.valor ? usd * tasa.valor : null);
+
+        /* ---------- Carrito y deseos (se guardan en el teléfono del cliente) ---------- */
+        const leer = (k) => { try { return JSON.parse(localStorage.getItem(k)) || []; } catch (e) { return []; } };
+        const escribir = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+        let deseados = leer('deseados');
+        let carrito = leer('carrito');
+        let catActual = 'todas';
+        let busqueda = '';
+        let ultimoN = 0;
+
+        function migrarYLimpiar(limpiar) {
+            const porNombre = (n) => productos.find(p => p.nombre === n);
+            deseados = deseados.map(x => (typeof x === 'string' ? (porId[x] ? x : (porNombre(x) || {}).id) : null)).filter(Boolean);
+            carrito = carrito.map(x => {
+                if (!x || typeof x !== 'object') return null;
+                const id = x.id || (porNombre(x.nombre) || {}).id;
+                return id ? { id, cantidad: Math.max(1, parseInt(x.cantidad) || 1) } : null;
+            }).filter(Boolean);
+            if (limpiar) {
+                deseados = deseados.filter(disponible);
+                carrito = carrito.filter(x => disponible(x.id));
+            }
+            escribir('deseados', deseados); escribir('carrito', carrito);
+        }
+
+        let toastT;
+        function toast(texto, mal = false) {
+            const t = $('toast');
+            t.textContent = texto; t.classList.toggle('mal', mal); t.classList.add('mostrar');
+            clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('mostrar'), 3200);
+        }
+
+        /* ---------- Tips de bienvenida ---------- */
+        document.addEventListener('DOMContentLoaded', () => { $('anuncioTipsModal').style.display = 'flex'; });
+        function cerrarAnuncio() {
+            $('anuncioTipsModal').style.animation = 'aparecerModal 0.3s ease reverse forwards';
+            setTimeout(() => { $('anuncioTipsModal').style.display = 'none'; }, 300);
+        }
+
+        /* ---------- Tarjetas y categorías ---------- */
+        function tarjeta(p) {
+            const ago = agotado(p.id), n = precioNum(p), b = aBs(n);
+            return `
+            <div class="card${ago ? ' agotado' : ''}" data-id="${esc(p.id)}" data-categoria="${esc(p.cat[0])}">
+                <div class="card-media">
+                    ${ago ? '<span class="sello-agotado">Agotado</span>' : ''}
+                    <div class="slides">${p.imgs.map((src, i) =>
+                        `<img class="card-img" src="${esc(src)}" alt="${esc(p.nombre)}${i ? ' ' + (i + 1) : ''}" loading="${i ? 'lazy' : 'eager'}" draggable="false" data-ver="${esc(p.id)}" onerror="this.onerror=null;this.src=PLACEHOLDER">`).join('')}</div>
+                    ${p.imgs.length > 1 ? `<span class="contador-fotos">1 / ${p.imgs.length}</span>` : ''}
+                </div>
+                <h3 data-ver="${esc(p.id)}">${esc(p.nombre)}</h3>
+                ${n ? `<div class="card-precio">$${n.toFixed(2)}</div><div class="card-precio-bs">${b !== null ? 'Bs. ' + fmt(b) : ''}</div>`
+                    : `<div class="card-precio consultar">Consultar precio</div><div class="card-precio-bs"></div>`}
+                <div class="card-actions">
+                    <i class="fa-regular fa-heart" data-tipo="deseados" title="Agregar a Deseos"></i>
+                    <i class="fa-solid fa-cart-shopping style-empty" data-tipo="carrito" title="Agregar al Carrito"></i>
+                </div>
+            </div>`;
+        }
+
+        function renderCatalogo() {
+            // Fijos primero; dentro de cada categoría, lo que agrega el dueño va al final (el más nuevo de último).
+            const orden = [...productos.filter(p => !p.dinamico),
+                           ...productos.filter(p => p.dinamico).sort((a, b) => (a.creado || 0) - (b.creado || 0))]
+                .filter(p => !ajustes.ocultos.includes(p.id));
+            const q = busqueda.trim().toLowerCase();
+            let html = '';
+            for (const [clave, nombre, icono] of GRUPOS) {
+                if (catActual !== 'todas' && clave !== catActual) continue;
+                const items = orden.filter(p => p.cat[0] === clave && (!q || p.nombre.toLowerCase().includes(q)));
+                if (!items.length) continue;
+                html += `<div class="categoria-titulo" data-categoria="${clave}"><i class="fas ${icono}"></i> ${esc(nombre)}</div>` + items.map(tarjeta).join('');
+            }
+            $('catalogo-container').innerHTML = html || '<p class="sin-resultados">No encontramos productos con ese filtro.</p>';
+            pintarEstados();
+        }
+
+        $('catalogo-container').addEventListener('click', e => {
+            const ver = e.target.closest('[data-ver]');
+            if (ver) { verDetalleProducto(ver.dataset.ver); return; }
+            const ic = e.target.closest('.card-actions i');
+            if (ic) toggleItem(ic.dataset.tipo, ic.closest('.card').dataset.id);
+        });
+        // Al deslizar las fotos de una tarjeta se actualiza el contador "1 / 3"
+        $('catalogo-container').addEventListener('scroll', e => {
+            const sl = e.target;
+            if (!sl.classList || !sl.classList.contains('slides')) return;
+            const c = sl.parentNode.querySelector('.contador-fotos');
+            if (c) c.textContent = `${Math.round(sl.scrollLeft / (sl.clientWidth || 1)) + 1} / ${sl.children.length}`;
+        }, true);
+
+        /* ---------- Carrito / deseos ---------- */
+        function toggleItem(tipo, id) {
+            if (!disponible(id)) { toast('Este producto está agotado', true); return; }
+            if (tipo === 'carrito') {
+                const i = carrito.findIndex(x => x.id === id);
+                if (i < 0) carrito.push({ id, cantidad: 1 }); else carrito.splice(i, 1);
+                escribir('carrito', carrito);
+            } else {
+                const i = deseados.indexOf(id);
+                if (i < 0) deseados.push(id); else deseados.splice(i, 1);
+                escribir('deseados', deseados);
+            }
+            pintarEstados();
+            if ($('listaOverlay').classList.contains('abierto')) pintarItems();
+            if (detalleId) actualizarBotonesModal();
+        }
+
+        function pintarEstados() {
+            const totalCarrito = carrito.reduce((s, x) => s + (x.cantidad || 1), 0);
+            [['badge-carrito', totalCarrito], ['badge-flot', totalCarrito], ['badge-deseados', deseados.length]].forEach(([id, n]) => {
+                const b = $(id); b.innerText = n; b.style.display = n > 0 ? 'inline-block' : 'none';
+            });
+            if (totalCarrito > ultimoN) { const f = $('carritoFlot'); f.classList.remove('salto'); void f.offsetWidth; f.classList.add('salto'); }
+            ultimoN = totalCarrito;
+            document.querySelectorAll('.card').forEach(card => {
+                const id = card.dataset.id;
+                const h = card.querySelector('.fa-heart');
+                const c = card.querySelector('[data-tipo="carrito"]');
+                if (h) h.className = (deseados.includes(id) ? 'fa-solid' : 'fa-regular') + ' fa-heart';
+                if (c) {
+                    const en = carrito.some(x => x.id === id);
+                    c.classList.toggle('style-filled', en); c.classList.toggle('style-empty', !en);
+                }
+            });
+        }
+
+        /* ---------- Detalle del producto ---------- */
+        let detalleId = null;
+        function verDetalleProducto(id) {
+            const p = porId[id]; if (!p) return;
+            detalleId = id;
+            const n = precioNum(p), b = aBs(n);
+            $('modal-titulo').innerText = p.nombre;
+            $('modal-descripcion').innerText = p.desc || 'Sin descripción disponible.';
+            $('modal-precio-usd').innerText = n ? `$${n.toFixed(2)}` : 'Consultar precio';
+            $('modal-precio-bs').innerText = n && b !== null ? `Bs. ${fmt(b)}` : '';
+            const sl = $('modal-slides');
+            sl.innerHTML = p.imgs.map((src, i) => `<img src="${esc(src)}" alt="${esc(p.nombre)} ${i + 1}" draggable="false" data-i="${i}" onerror="this.onerror=null;this.src=PLACEHOLDER">`).join('');
+            sl.scrollLeft = 0;
+            $('modal-miniaturas').innerHTML = p.imgs.length > 1 ? p.imgs.map((src, i) =>
+                `<img src="${esc(src)}" class="miniatura-img${i ? '' : ' activa'}" data-i="${i}" alt="Foto ${i + 1}" onerror="this.onerror=null;this.src=PLACEHOLDER">`).join('') : '';
+            $('modal-btn-carrito').onclick = () => toggleItem('carrito', id);
+            $('modal-btn-deseos').onclick = () => toggleItem('deseados', id);
+            actualizarBotonesModal();
+            $('detalleProductoModal').style.display = 'flex';
+        }
+        $('modal-slides').addEventListener('scroll', e => {
+            const sl = e.currentTarget, i = Math.round(sl.scrollLeft / (sl.clientWidth || 1));
+            document.querySelectorAll('#modal-miniaturas .miniatura-img').forEach((m, k) => m.classList.toggle('activa', k === i));
+        }, { passive: true });
+        $('modal-slides').addEventListener('click', e => {
+            const img = e.target.closest('img'); if (img && detalleId) abrirGaleria(detalleId, Number(img.dataset.i) || 0);
+        });
+        $('modal-miniaturas').addEventListener('click', e => {
+            const m = e.target.closest('.miniatura-img'); if (!m) return;
+            const sl = $('modal-slides'); sl.scrollTo({ left: Number(m.dataset.i) * sl.clientWidth, behavior: 'smooth' });
+        });
+
+        function actualizarBotonesModal() {
+            if (!detalleId) return;
+            const id = detalleId, ago = agotado(id);
+            const enCarrito = carrito.some(x => x.id === id), enDeseos = deseados.includes(id);
+            const bc = $('modal-btn-carrito'), bh = $('modal-btn-deseos');
+            bc.disabled = ago;
+            if (ago) { bc.innerHTML = '<i class="fas fa-ban"></i> Agotado'; bc.style.background = 'var(--cian-neon)'; }
+            else if (enCarrito) { bc.innerHTML = '<i class="fas fa-shopping-cart"></i> Quitar del Carrito'; bc.style.background = 'white'; }
+            else { bc.innerHTML = '<i class="fas fa-shopping-cart"></i> Agregar al Carrito'; bc.style.background = 'var(--cian-neon)'; }
+            bh.innerHTML = `<i class="${enDeseos ? 'fa-solid' : 'fa-regular'} fa-heart"></i>`;
+            bh.style.textShadow = enDeseos ? '0 0 8px var(--cian-neon)' : 'none';
+        }
+
+        function cerrarDetalle() {
+            const m = $('detalleProductoModal');
+            m.style.animation = 'aparecerModal 0.3s ease reverse forwards';
+            setTimeout(() => { m.style.display = 'none'; m.style.animation = 'aparecerModal 0.4s ease'; detalleId = null; }, 300);
+        }
+
+        /* ---------- Galería de pantalla completa ---------- */
+        let galN = 0;
+        function abrirGaleria(id, inicio = 0) {
+            const p = porId[id]; if (!p) return;
+            galN = p.imgs.length;
+            $('galSlides').innerHTML = p.imgs.map((src, i) =>
+                `<div class="gal-slide"><img src="${esc(src)}" alt="${esc(p.nombre)} ${i + 1}" draggable="false"></div>`).join('');
+            $('galThumbs').innerHTML = p.imgs.map((src, i) =>
+                `<button type="button" data-i="${i}" aria-label="Ver foto ${i + 1}"><img src="${esc(src)}" alt=""></button>`).join('');
+            const ov = $('overlay');
+            ov.classList.toggle('una', galN < 2);
+            ov.classList.add('abierto');
+            const sl = $('galSlides');
+            sl.style.scrollBehavior = 'auto'; sl.scrollLeft = inicio * sl.clientWidth; sl.style.scrollBehavior = '';
+            galMarcar(inicio);
+        }
+        function galMarcar(i) {
+            document.querySelectorAll('#galThumbs button').forEach((b, k) => b.classList.toggle('on', k === i));
+            $('galCuenta').textContent = `${i + 1} / ${galN}`;
+            const t = document.querySelector('#galThumbs button.on');
+            if (t) t.scrollIntoView({ block: 'nearest', inline: 'center' });
+        }
+        const galActual = () => { const sl = $('galSlides'); return Math.round(sl.scrollLeft / (sl.clientWidth || 1)); };
+        function galIr(i) { const sl = $('galSlides'); sl.scrollTo({ left: Math.max(0, Math.min(galN - 1, i)) * sl.clientWidth, behavior: 'smooth' }); }
+        $('galSlides').addEventListener('scroll', () => galMarcar(galActual()), { passive: true });
+        $('galThumbs').addEventListener('click', e => { e.stopPropagation(); const b = e.target.closest('button'); if (b) galIr(Number(b.dataset.i)); });
+        $('galAnt').addEventListener('click', e => { e.stopPropagation(); galIr(galActual() - 1); });
+        $('galSig').addEventListener('click', e => { e.stopPropagation(); galIr(galActual() + 1); });
+        function cerrarImagen() { $('overlay').classList.remove('abierto'); }
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') { cerrarImagen(); if (detalleId) cerrarDetalle(); if ($('listaOverlay').classList.contains('abierto')) cerrarLista(); }
+            if ($('overlay').classList.contains('abierto')) {
+                if (e.key === 'ArrowLeft') galIr(galActual() - 1);
+                if (e.key === 'ArrowRight') galIr(galActual() + 1);
+            }
+        });
+
+        /* ========================================================
+           CARRITO / DESEOS dentro de la misma página
+           ======================================================== */
+        let listaTipo = 'carrito';
+        let comprobante = null; // { data } — captura de pago elegida por el cliente
+        const METODO_EFECTIVO = 'Efectivo en Tienda / Divisas';
+
+        function redimensionar(archivo, max = 1600, calidad = 0.85) {
+            return new Promise((ok, mal) => {
+                const url = URL.createObjectURL(archivo);
+                const img = new Image();
+                img.onload = () => {
+                    const k = Math.min(1, max / Math.max(img.width, img.height));
+                    const w = Math.round(img.width * k), h = Math.round(img.height * k);
+                    const c = document.createElement('canvas'); c.width = w; c.height = h;
+                    const x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, w, h); x.drawImage(img, 0, 0, w, h);
+                    URL.revokeObjectURL(url);
+                    ok(c.toDataURL('image/jpeg', calidad));
+                };
+                img.onerror = () => { URL.revokeObjectURL(url); mal(new Error('No pude leer esa imagen. Prueba con otra captura.')); };
+                img.src = url;
+            });
+        }
+
+        function htmlPago() {
+            const p = ajustes.pago || PAGO_DEFECTO;
+            const lineas = [];
+            if (p.pagoMovil) lineas.push(`<p><b>Pago Móvil:</b> ${esc(p.pagoMovil)}</p>`);
+            if (p.transferencia) lineas.push(`<p><b>Transferencia:</b> ${esc(p.transferencia)}</p>`);
+            if (p.binance) lineas.push(`<p><b>Binance Pay ID:</b> ${esc(p.binance)}</p>`);
+            return `
+            <div class="pago-box">
+                <h3><i class="fas fa-wallet"></i> Selecciona tu Método de Pago</h3>
+                <div class="datos-pago">${lineas.join('') || '<p>Escríbenos por WhatsApp para coordinar el pago.</p>'}</div>
+                <div class="metodos-pago">
+                    <label class="metodo-label"><input type="radio" name="pago" value="Pago Móvil / (Bs)" checked> Pago Móvil / Bs.</label>
+                    <label class="metodo-label"><input type="radio" name="pago" value="Transferencia Nacional"> Transferencia Bs.</label>
+                    <label class="metodo-label"><input type="radio" name="pago" value="Binance Pay / USDT"> Binance Pay / USDT</label>
+                    <label class="metodo-label"><input type="radio" name="pago" value="${METODO_EFECTIVO}"> Efectivo en Tienda</label>
+                </div>
+                <div id="pago-comprobante">
+                    <label class="campo-pago-etq" for="pago-ref">Número de referencia del pago (opcional)</label>
+                    <input type="text" id="pago-ref" class="campo-pago" inputmode="numeric" maxlength="30" placeholder="Ej: 123456">
+                    <div class="file-input-box">
+                        <p><i class="fas fa-camera"></i> Sube la captura de tu pago para que podamos confirmarlo más rápido.</p>
+                        <input type="file" id="comprobante" accept="image/*" hidden>
+                        <button type="button" class="btn-subir" id="btn-subir"><i class="fas fa-image"></i> <span id="txt-subir">Elegir captura</span></button>
+                        <div id="comp-preview-box"><img id="comp-preview" alt="Captura del pago"><br>
+                            <button type="button" class="btn-subir" id="btn-quitar-comp" style="margin-top:8px">Quitar captura</button></div>
+                    </div>
+                </div>
+                <button type="button" class="btn-accion" id="btn-enviar"><i class="fab fa-whatsapp"></i> Enviar Pedido y Comprobante por WhatsApp</button>
+            </div>`;
+        }
+
+        function pintarComprobante() {
+            const box = $('comp-preview-box'); if (!box) return;
+            box.style.display = comprobante ? 'block' : 'none';
+            if (comprobante) $('comp-preview').src = comprobante.data;
+            $('txt-subir').textContent = comprobante ? 'Cambiar captura' : 'Elegir captura';
+        }
+
+        function abrirLista(tipo) {
+            listaTipo = tipo;
+            $('listaTitulo').innerHTML = tipo === 'carrito' ? '<i class="fas fa-cart-shopping"></i> Mi Carrito de Compras' : '<i class="fas fa-heart"></i> Mi Lista de Deseos';
+            $('listaContenido').innerHTML = '<div id="lista-items"></div>' + (tipo === 'carrito' ? `<div id="lista-resto">${htmlPago()}</div>` : '');
+            $('listaOverlay').classList.add('abierto'); $('listaOverlay').scrollTop = 0;
+            document.body.style.overflow = 'hidden';
+            if (tipo === 'carrito') {
+                document.querySelectorAll('input[name="pago"]').forEach(r => r.addEventListener('change', () => {
+                    $('pago-comprobante').hidden = document.querySelector('input[name="pago"]:checked').value === METODO_EFECTIVO;
+                }));
+                $('btn-subir').addEventListener('click', () => $('comprobante').click());
+                $('comprobante').addEventListener('change', async (e) => {
+                    const f = e.target.files[0]; e.target.value = ''; if (!f) return;
+                    try { comprobante = { data: await redimensionar(f) }; pintarComprobante(); }
+                    catch (err) { toast(err.message, true); }
+                });
+                $('btn-quitar-comp').addEventListener('click', () => { comprobante = null; pintarComprobante(); });
+                $('btn-enviar').addEventListener('click', enviarPedido);
+                pintarComprobante();
+            }
+            pintarItems();
+        }
+        function cerrarLista() { $('listaOverlay').classList.remove('abierto'); document.body.style.overflow = ''; }
+
+        function pintarItems() {
+            const cont = $('lista-items'); if (!cont) return;
+            const esC = listaTipo === 'carrito';
+            const lista = esC ? carrito.filter(x => porId[x.id]) : deseados.filter(id => porId[id]).map(id => ({ id, cantidad: 1 }));
+            const resto = $('lista-resto');
+            if (!lista.length) {
+                cont.innerHTML = `<p class="empty-msg">${esC ? 'Tu carrito está vacío.' : 'No tienes productos guardados aquí actualmente.'}</p>
+                    <div style="text-align:center"><button class="lista-cerrar" onclick="cerrarLista()">Volver al Catálogo</button></div>`;
+                if (resto) resto.hidden = true;
+                return;
+            }
+            if (resto) resto.hidden = false;
+            let totalUSD = 0;
+            const filas = lista.map(({ id, cantidad }) => {
+                const p = porId[id], n = precioNum(p), sub = n * cantidad, b = aBs(sub);
+                totalUSD += sub;
+                const img = `<img src="${esc(p.imgs[0])}" alt="" onerror="this.onerror=null;this.src=PLACEHOLDER">`;
+                const precio = n ? `Precio: $${n.toFixed(2)}${esC ? ` | Subtotal: <b>$${sub.toFixed(2)}</b>` : ''}` : 'Precio: por confirmar';
+                const precioBs = n && b !== null && esC ? `<div class="item-precio-bs">Equivalente en Bs: Bs. ${fmt(b)}</div>` : '';
+                if (esC) {
+                    return `<li class="item">${img}<div class="item-info"><div class="item-titulo">${esc(p.nombre)}</div>
+                        <div class="item-precio">${precio}</div>${precioBs}</div>
+                        <div class="controles-cant"><button class="btn-cant" data-cant="-1" data-id="${esc(id)}" aria-label="Menos">-</button><span>${cantidad}</span><button class="btn-cant" data-cant="1" data-id="${esc(id)}" aria-label="Más">+</button></div>
+                        <button class="btn-borrar" data-quitar="${esc(id)}" aria-label="Quitar"><i class="fas fa-trash"></i></button></li>`;
+                }
+                const enC = carrito.some(x => x.id === id);
+                return `<li class="item">${img}<div class="item-info"><div class="item-titulo">${esc(p.nombre)}</div><div class="item-precio">${precio}</div></div>
+                    <button class="btn-mini" data-addcart="${esc(id)}">${enC ? '✓ En el carrito' : '<i class="fas fa-cart-plus"></i> Al carrito'}</button>
+                    <button class="btn-borrar" data-quitar="${esc(id)}" aria-label="Quitar"><i class="fas fa-trash"></i></button></li>`;
+            }).join('');
+            const totalBs = aBs(totalUSD);
+            cont.innerHTML = `<ul class="item-list">${filas}</ul>` + (esC ? `
+                <div class="total-box"><div class="total-usd">Total a Pagar: $${totalUSD.toFixed(2)}</div>
+                ${totalBs !== null ? `<div class="total-bs">Total en Bolívares (BCV): Bs. ${fmt(totalBs)}</div>` : ''}</div>` : '');
+        }
+
+        $('listaContenido').addEventListener('click', e => {
+            const c = e.target.closest('[data-cant]');
+            if (c) {
+                const it = carrito.find(x => x.id === c.dataset.id); if (!it) return;
+                const n = it.cantidad + Number(c.dataset.cant);
+                if (n <= 0) carrito = carrito.filter(x => x !== it); else it.cantidad = Math.min(99, n);
+                escribir('carrito', carrito); pintarEstados(); pintarItems(); return;
+            }
+            const q = e.target.closest('[data-quitar]');
+            if (q) {
+                if (listaTipo === 'carrito') { carrito = carrito.filter(x => x.id !== q.dataset.quitar); escribir('carrito', carrito); pintarEstados(); pintarItems(); }
+                else toggleItem('deseados', q.dataset.quitar);
+                return;
+            }
+            const a = e.target.closest('[data-addcart]');
+            if (a && !carrito.some(x => x.id === a.dataset.addcart)) toggleItem('carrito', a.dataset.addcart);
+        });
+
+        /* ---------- Enviar el pedido por WhatsApp (con enlace a la captura del pago) ---------- */
+        function waUrl(texto) { return `https://api.whatsapp.com/send?phone=${MI_TELEFONO}&text=${encodeURIComponent(texto)}`; }
+        function abrirWhatsApp(texto) {
+            const w = window.open(waUrl(texto), '_blank');
+            if (!w) window.location.href = waUrl(texto);   // si el navegador bloquea la ventana, se abre en esta misma
+        }
+
+        async function enviarPedido() {
+            const lista = carrito.filter(x => disponible(x.id));
+            if (!lista.length) { toast('Tu carrito está vacío', true); return; }
+            const metodo = document.querySelector('input[name="pago"]:checked').value;
+            const necesita = metodo !== METODO_EFECTIVO;
+            const ref = ($('pago-ref').value || '').trim();
+            if (necesita && !comprobante && !confirm('Todavía no subiste la captura de tu pago. ¿Quieres enviar el pedido sin ella?')) return;
+
+            const btn = $('btn-enviar'), textoBtn = btn.innerHTML;
+            btn.disabled = true;
+            let enlace = '', fallo = false;
+            if (necesita && comprobante) {
+                btn.textContent = 'Subiendo tu captura…';
+                try {
+                    const r = await fetch('/api/comprobante', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ imagen: comprobante.data }) });
+                    const d = await r.json().catch(() => null);
+                    if (!r.ok || !d || !d.url) throw new Error((d && d.error) || 'No se pudo subir');
+                    enlace = location.origin + d.url;
+                } catch (err) { fallo = true; }
+            }
+
+            let totalUSD = 0;
+            let msg = `¡Hola ${NOMBRE_TIENDA}! 🚀 Quiero confirmar el siguiente pedido de su catálogo web:\n\n`;
+            lista.forEach(({ id, cantidad }) => {
+                const p = porId[id], n = precioNum(p); totalUSD += n * cantidad;
+                msg += `▫️ *${p.nombre}* (x${cantidad}) - ${n ? '$' + (n * cantidad).toFixed(2) : 'precio por confirmar'}\n`;
+            });
+            msg += `\n💵 *TOTAL GENERAL: $${totalUSD.toFixed(2)}*\n`;
+            const tBs = aBs(totalUSD);
+            if (tBs !== null) { msg += `🇻🇪 *Monto en Bs (BCV): Bs. ${fmt(tBs)}*\n🧮 *Tasa aplicada:* Bs. ${fmt(tasa.valor)}\n`; }
+            msg += `💳 *Método de Pago:* ${metodo}\n`;
+            if (necesita && ref) msg += `🔢 *Referencia:* ${ref}\n`;
+            if (enlace) msg += `📎 *Comprobante:* ${enlace}\n`;
+            else if (necesita && comprobante) msg += `📎 *Comprobante:* lo adjunto a continuación en este chat\n`;
+            else if (necesita) msg += `📎 *Comprobante:* lo envío a continuación en este chat\n`;
+
+            try {
+                if (fallo) {
+                    // Sin servidor para guardar la captura: se intenta compartir la imagen directamente.
+                    try {
+                        const blob = await (await fetch(comprobante.data)).blob();
+                        const file = new File([blob], 'comprobante.jpg', { type: 'image/jpeg' });
+                        if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], text: msg }); return; }
+                    } catch (err) { if (err && err.name === 'AbortError') return; }
+                    toast('No pude subir la captura. Se abrirá WhatsApp: adjunta la imagen en el chat.', true);
+                }
+                abrirWhatsApp(msg);
+            } finally { btn.disabled = false; btn.innerHTML = textoBtn; }
+        }
+
+        /* ---------- Menú, filtros, búsqueda y compartir ---------- */
+        function toggleMenu() { $('myDropdown').classList.toggle('show'); }
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) document.querySelectorAll('.dropdown-content').forEach(d => d.classList.remove('show'));
+        };
+        function filtrar(categoria) { catActual = categoria; renderCatalogo(); }
+        function buscarProducto() { busqueda = $('buscador').value; renderCatalogo(); }
+        function compartirCatalogo() {
+            if (navigator.share) navigator.share({ title: 'Catálogo COVENSEE', text: 'Mira nuestros productos', url: window.location.href }).catch(() => {});
+            else alert('Copia el enlace de tu navegador para compartir este catálogo.');
+        }
+
+        /* ---------- Productos del servidor, ajustes y tasa del día ---------- */
+        async function pedir(ruta) {
+            try { const r = await fetch(ruta, { cache: 'no-store' }); return r.ok ? await r.json() : null; }
+            catch (e) { return null; } // sin servidor (por ejemplo, abierto desde el computador): solo se ven los productos fijos
+        }
+        function pintarTasa() {
+            $('tasa-actual-display').innerText = tasa && tasa.valor ? `Bs. ${fmt(tasa.valor)}` : 'no disponible';
+            $('tasa-label').innerText = tasa && tasa.fuente === 'manual' ? 'Tasa del día:' : 'Tasa Oficial BCV:';
+            if (tasa && tasa.valor) { try { localStorage.setItem('tasaBCV', JSON.stringify(tasa)); } catch (e) {} }
+        }
+        // Respaldo: si el servidor no entrega la tasa, se consulta directo la API pública; y si tampoco, se usa la última guardada.
+        async function tasaRespaldo() {
+            try {
+                const r = await fetch('https://ve.dolarapi.com/v1/dolares/oficial', { cache: 'no-store' });
+                if (r.ok) { const d = await r.json(); const v = Number(d.promedio);
+                    if (isFinite(v) && v > 0) return { valor: v, fuente: 'BCV', fecha: d.fechaActualizacion || null }; }
+            } catch (e) {}
+            try { const g = JSON.parse(localStorage.getItem('tasaBCV') || 'null'); if (g && g.valor) return g; } catch (e) {}
+            return null;
+        }
+        async function cargarTodo() {
+            const [lista, aj, t] = await Promise.all([pedir('/api/productos'), pedir('/api/ajustes'), pedir('/api/tasa')]);
+            if (aj && typeof aj === 'object') {
+                ajustes = { ocultos: aj.ocultos || [], agotados: aj.agotados || [], precios: aj.precios || {}, pago: aj.pago || null,
+                            tasaModo: aj.tasaModo || 'auto', tasaManual: aj.tasaManual || null };
+            }
+            tasa = t && t.valor ? t : null;
+            pintarTasa();
+            if (!tasa) { tasa = await tasaRespaldo(); pintarTasa(); if (typeof renderCatalogo === 'function') renderCatalogo(); }
+            if (Array.isArray(lista)) {
+                listaDin = lista;
+                const reciente = Date.now() - 14 * 24 * 3600 * 1000;
+                const nuevos = lista.filter(d => d && d.id && d.nombre && Array.isArray(d.imgs) && d.imgs.length)
+                    .map(d => ({ id: d.id, dinamico: true, creado: d.creado || 0, cat: [d.cat], nombre: d.nombre, desc: d.desc || '', precio: d.precio || '', imgs: d.imgs }));
+                for (let i = productos.length - 1; i >= 0; i--) { if (productos[i].dinamico) productos.splice(i, 1); }
+                productos.push(...nuevos);
+                porId = Object.fromEntries(productos.map(p => [p.id, p]));
+                migrarYLimpiar(true);
+            }
+            renderCatalogo();
+            if (window.adminDibujar) window.adminDibujar();
+            if ($('listaOverlay').classList.contains('abierto')) pintarItems();
+        }
+
+        /* ---------- PANEL DE ADMINISTRADOR (ícono de persona) ---------- */
+        (() => {
+            const A = (id) => document.getElementById('adm-' + id);
+            const ov = document.getElementById('adminOverlay');
+            const CATS = { iluminacion: 'Iluminación', espejos: 'Espejos', inversores: 'Inversores', baterias: 'Baterías', hogar: 'Hogar', herramientas: 'Herramientas', 'sistemas-facturacion': 'Sistemas de Facturación' };
+            const MAX_FOTOS = 4;
+            let clave = '';
+            try { clave = sessionStorage.getItem('lm_admin') || ''; } catch (e) {}
+            let fotosAdm = [];      // { url } (ya guardada) o { data } (nueva)
+            let editandoId = null;
+            let lista = [];
+
+            function aviso(texto, mal = false) {
+                const t = A('toast');
+                t.textContent = texto;
+                t.classList.toggle('mal', mal);
+                t.classList.add('mostrar');
+                clearTimeout(aviso.t);
+                aviso.t = setTimeout(() => t.classList.remove('mostrar'), 3500);
+            }
+
+            async function api(ruta, opciones = {}) {
+                let r;
+                try {
+                    r = await fetch('/api' + ruta, {
+                        ...opciones,
+                        headers: { 'content-type': 'application/json', 'x-admin-password': clave, ...(opciones.headers || {}) },
+                    });
+                } catch (e) {
+                    const err = new Error('No hay conexión con el servidor. Revisa tu internet e inténtalo de nuevo.');
+                    err.status = 0; throw err;
+                }
+                let datos = null;
+                try { datos = await r.json(); } catch (e) {}
+                if (!r.ok) {
+                    const sinServidor = r.status === 404 && !(datos && datos.error);
+                    const err = new Error(sinServidor
+                        ? 'No encuentro el servidor de productos. En Netlify revisa que el “Directorio de funciones” sea netlify/functions y vuelve a publicar.'
+                        : ((datos && datos.error) || `Error ${r.status}`));
+                    err.status = r.status; throw err;
+                }
+                return datos;
+            }
+
+            /* ----- abrir / cerrar ----- */
+            function mostrarLogin() {
+                A('login').hidden = false; A('panel').hidden = true; A('salir').hidden = true;
+                setTimeout(() => A('clave').focus(), 50);
+            }
+            function mostrarPanel() {
+                A('login').hidden = true; A('panel').hidden = false; A('salir').hidden = false;
+                cargarLista(); dibujarFotos();
+            }
+            function abrir() {
+                ov.hidden = false;
+                document.body.style.overflow = 'hidden';
+                ov.scrollTop = 0;
+                if (clave) {
+                    api('/login', { method: 'POST', body: '{}' }).then(mostrarPanel).catch(() => { clave = ''; mostrarLogin(); });
+                } else { mostrarLogin(); }
+            }
+            function cerrar() { ov.hidden = true; document.body.style.overflow = ''; }
+            window.abrirAdmin = abrir;
+            window.cerrarAdmin = cerrar;
+            A('cerrar').addEventListener('click', cerrar);
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !ov.hidden) cerrar(); });
+
+            function salir() {
+                clave = '';
+                try { sessionStorage.removeItem('lm_admin'); } catch (e) {}
+                A('clave').value = '';
+                limpiarForm();
+                mostrarLogin();
+            }
+            A('salir').addEventListener('click', salir);
+
+            A('formLogin').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                A('errLogin').textContent = '';
+                clave = A('clave').value;
+                A('btnEntrar').disabled = true;
+                try {
+                    await api('/login', { method: 'POST', body: '{}' });
+                    try { sessionStorage.setItem('lm_admin', clave); } catch (e) {}
+                    mostrarPanel();
+                } catch (err) {
+                    clave = '';
+                    A('errLogin').textContent = err.message;
+                } finally { A('btnEntrar').disabled = false; }
+            });
+
+            /* ----- fotos ----- */
+            function redimensionar(archivo, max = 1100, calidad = 0.82) {
+                return new Promise((ok, mal) => {
+                    const url = URL.createObjectURL(archivo);
+                    const img = new Image();
+                    img.onload = () => {
+                        const k = Math.min(1, max / Math.max(img.width, img.height));
+                        const w = Math.round(img.width * k), h = Math.round(img.height * k);
+                        const c = document.createElement('canvas');
+                        c.width = w; c.height = h;
+                        const x = c.getContext('2d');
+                        x.fillStyle = '#fff'; x.fillRect(0, 0, w, h);
+                        x.drawImage(img, 0, 0, w, h);
+                        URL.revokeObjectURL(url);
+                        ok(c.toDataURL('image/jpeg', calidad));
+                    };
+                    img.onerror = () => { URL.revokeObjectURL(url); mal(new Error('No pude leer una de las fotos. Prueba con otra.')); };
+                    img.src = url;
+                });
+            }
+            function dibujarFotos() {
+                A('fotos').innerHTML = fotosAdm.map((f, i) => `
+                    <div class="adm-foto">
+                        <img src="${esc(f.url || f.data)}" alt="Foto ${i + 1}">
+                        <button type="button" data-quitar="${i}" aria-label="Quitar foto ${i + 1}">&times;</button>
+                        ${i === 0 ? '<span class="adm-principal">Principal</span>' : ''}
+                    </div>`).join('') +
+                    (fotosAdm.length < MAX_FOTOS ? '<button type="button" class="adm-agregar" id="adm-btnFoto"><span>+</span>Agregar foto</button>' : '');
+            }
+            A('fotos').addEventListener('click', (e) => {
+                const q = e.target.closest('[data-quitar]');
+                if (q) { fotosAdm.splice(Number(q.dataset.quitar), 1); dibujarFotos(); return; }
+                if (e.target.closest('#adm-btnFoto')) A('archivos').click();
+            });
+            A('archivos').addEventListener('change', async (e) => {
+                const elegidos = [...e.target.files].slice(0, MAX_FOTOS - fotosAdm.length);
+                e.target.value = '';
+                A('errForm').textContent = '';
+                for (const f of elegidos) {
+                    try { fotosAdm.push({ data: await redimensionar(f) }); }
+                    catch (err) { A('errForm').textContent = err.message; }
+                }
+                dibujarFotos();
+            });
+
+            /* ----- formulario ----- */
+            function limpiarForm() {
+                editandoId = null;
+                A('formProducto').reset();
+                fotosAdm = [];
+                dibujarFotos();
+                A('tituloForm').textContent = 'Nuevo producto';
+                A('subForm').textContent = 'Llena los datos y toca “Publicar”. Aparece en el catálogo al instante.';
+                A('btnGuardar').textContent = 'Publicar producto';
+                A('btnCancelar').hidden = true;
+                A('errForm').textContent = '';
+            }
+            A('btnCancelar').addEventListener('click', limpiarForm);
+
+            A('formProducto').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                A('errForm').textContent = '';
+                const nombre = A('nombre').value.trim();
+                if (!nombre) { A('errForm').textContent = 'Escribe el título del producto.'; A('nombre').focus(); return; }
+                if (!A('cat').value) { A('errForm').textContent = 'Elige una categoría.'; A('cat').focus(); return; }
+                if (!fotosAdm.length) { A('errForm').textContent = 'Agrega al menos una foto.'; return; }
+                const cuerpo = {
+                    nombre, desc: A('desc').value, precio: A('precio').value, cat: A('cat').value,
+                    mantener: fotosAdm.filter((f) => f.url).map((f) => f.url),
+                    nuevas: fotosAdm.filter((f) => f.data).map((f) => f.data),
+                };
+                const edicion = editandoId;
+                A('btnGuardar').disabled = true;
+                A('btnGuardar').textContent = 'Guardando…';
+                try {
+                    await api(edicion ? `/productos/${edicion}` : '/productos', { method: edicion ? 'PUT' : 'POST', body: JSON.stringify(cuerpo) });
+                    limpiarForm();
+                    aviso(edicion ? 'Cambios guardados ✓' : 'Producto publicado ✓ Ya está en tu catálogo');
+                    cargarTodo();
+                } catch (err) {
+                    if (err.status === 401) { salir(); return; }
+                    A('errForm').textContent = err.message;
+                    A('btnGuardar').textContent = edicion ? 'Guardar cambios' : 'Publicar producto';
+                } finally { A('btnGuardar').disabled = false; }
+            });
+
+            /* ----- ajustes (agotado, ocultar, precio) ----- */
+            async function guardarAjustes(cambios) {
+                await api('/ajustes', { method: 'PUT', body: JSON.stringify(cambios) });
+                await cargarTodo();
+            }
+
+            /* ----- lista ----- */
+            function filaProducto(p, dinamico) {
+                const oculto = ajustes.ocultos.includes(p.id);
+                const ago = agotado(p.id);
+                const precio = String(precioDe(p)).trim();
+                const etiquetas = (ago ? '<span class="adm-etiqueta rojo">Agotado</span>' : '') + (oculto ? '<span class="adm-etiqueta gris">Eliminado</span>' : '');
+                const acciones = oculto
+                    ? `<button class="adm-btn adm-oro adm-chico" data-restaurar="${esc(p.id)}">Volver a mostrar</button>`
+                    : `${dinamico ? `<button class="adm-btn adm-borde adm-chico" data-editar="${esc(p.id)}">Editar</button>`
+                                  : `<button class="adm-btn adm-borde adm-chico" data-precio="${esc(p.id)}">Precio</button>`}
+                       <button class="adm-btn adm-borde adm-chico" data-agotado="${esc(p.id)}">${ago ? 'Hay existencia' : 'Marcar agotado'}</button>
+                       <button class="adm-btn adm-peligro adm-chico" data-borrar="${esc(p.id)}">Eliminar</button>`;
+                return `
+                    <div class="adm-item${oculto ? ' apagado' : ''}">
+                        <img src="${esc(p.imgs[0])}" alt="">
+                        <div class="adm-datos">
+                            <strong>${esc(p.nombre)}</strong>
+                            <span>${esc(precio ? '$' + precio.replace(/^\$/, '') : 'Consultar precio')} · ${esc((p.cat || []).map((c) => CATS[c] || c).join(', '))}${etiquetas}</span>
+                        </div>
+                        <div class="adm-acciones">${acciones}</div>
+                    </div>`;
+            }
+            function dibujarLista() {
+                lista = listaDin;
+                const dins = productos.filter((p) => p.dinamico);
+                const fijos = productos.filter((p) => !p.dinamico);
+                A('lista').innerHTML = [...dins.map((p) => filaProducto(p, true)), ...fijos.map((p) => filaProducto(p, false))].join('')
+                    || '<p class="adm-vacio">Todavía no hay productos.</p>';
+            }
+            function dibujarTasa() {
+                A('tasaActual').textContent = tasa && tasa.valor
+                    ? `Ahora: 1 $ = Bs ${fmt(tasa.valor)} (${tasa.fuente === 'manual' ? 'puesta por ti' : 'BCV'})`
+                    : 'Todavía no hay tasa disponible: escríbela tú o espera a que cargue la automática.';
+                const modo = ajustes.tasaModo === 'manual' ? 'manual' : 'auto';
+                document.querySelectorAll('input[name="adm-modo"]').forEach((r) => { r.checked = r.value === modo; });
+                A('tasaManualBox').hidden = modo !== 'manual';
+                if (modo === 'manual' && ajustes.tasaManual && document.activeElement !== A('tasaManual')) A('tasaManual').value = String(ajustes.tasaManual).replace('.', ',');
+            }
+            function dibujarPago() {
+                const p = ajustes.pago || PAGO_DEFECTO;
+                if (document.activeElement && ['adm-payMovil', 'adm-payTransf', 'adm-payBinance'].includes(document.activeElement.id)) return;
+                A('payMovil').value = p.pagoMovil || '';
+                A('payTransf').value = p.transferencia || '';
+                A('payBinance').value = p.binance || '';
+            }
+            window.adminDibujar = () => { dibujarLista(); dibujarTasa(); dibujarPago(); };
+            A('formPago').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                A('btnPago').disabled = true;
+                try {
+                    await guardarAjustes({ pago: { pagoMovil: A('payMovil').value, transferencia: A('payTransf').value, binance: A('payBinance').value } });
+                    aviso('Datos de pago guardados ✓');
+                } catch (err) {
+                    if (err.status === 401) { salir(); return; }
+                    aviso(err.message, true);
+                } finally { A('btnPago').disabled = false; }
+            });
+            async function cargarLista() { await cargarTodo(); }
+
+            document.querySelectorAll('input[name="adm-modo"]').forEach((r) => r.addEventListener('change', () => {
+                A('tasaManualBox').hidden = !document.querySelector('input[name="adm-modo"][value="manual"]').checked;
+            }));
+            A('formTasa').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                A('errTasa').textContent = '';
+                const manual = document.querySelector('input[name="adm-modo"][value="manual"]').checked;
+                A('btnTasa').disabled = true;
+                try {
+                    await guardarAjustes({ tasaModo: manual ? 'manual' : 'auto', tasaManual: A('tasaManual').value });
+                    aviso('Tasa guardada ✓');
+                } catch (err) {
+                    if (err.status === 401) { salir(); return; }
+                    A('errTasa').textContent = err.message;
+                } finally { A('btnTasa').disabled = false; }
+            });
+
+            /* ----- copia de seguridad ----- */
+            const aDataUrl = (blob) => new Promise((ok, mal) => { const r = new FileReader(); r.onload = () => ok(r.result); r.onerror = mal; r.readAsDataURL(blob); });
+            A('btnCopia').addEventListener('click', async () => {
+                const est = A('estadoCopia');
+                A('btnCopia').disabled = true;
+                try {
+                    await cargarTodo();
+                    const productosCopia = [];
+                    let n = 0;
+                    for (const p of listaDin) {
+                        est.textContent = `Preparando la copia… ${++n} de ${listaDin.length}`;
+                        const imgs = [];
+                        for (const u of p.imgs) {
+                            const r = await fetch(u);
+                            if (!r.ok) throw new Error('No pude leer una de las fotos. Intenta de nuevo.');
+                            imgs.push(await aDataUrl(await r.blob()));
+                        }
+                        productosCopia.push({ id: p.id, nombre: p.nombre, desc: p.desc || '', precio: p.precio || '', cat: p.cat, creado: p.creado || 0, imgs });
+                    }
+                    const copia = {
+                        tipo: 'copia-catalogo', version: 1, fecha: new Date().toISOString(),
+                        productos: productosCopia,
+                        ajustes: { ocultos: ajustes.ocultos, agotados: ajustes.agotados, precios: ajustes.precios, pago: ajustes.pago, tasaModo: ajustes.tasaModo, tasaManual: ajustes.tasaManual }
+                    };
+                    const url = URL.createObjectURL(new Blob([JSON.stringify(copia)], { type: 'application/json' }));
+                    const a = document.createElement('a');
+                    a.href = url; a.download = `copia-catalogo-${new Date().toISOString().slice(0, 10)}.json`;
+                    document.body.appendChild(a); a.click(); a.remove();
+                    setTimeout(() => URL.revokeObjectURL(url), 5000);
+                    est.textContent = `Copia lista ✓ (${productosCopia.length} productos con fotos). Guárdala en un lugar seguro.`;
+                } catch (err) {
+                    est.textContent = '';
+                    aviso(err.message || 'No se pudo hacer la copia.', true);
+                } finally { A('btnCopia').disabled = false; }
+            });
+            A('btnRestaurar').addEventListener('click', () => A('archivoCopia').click());
+            A('archivoCopia').addEventListener('change', async (e) => {
+                const f = e.target.files[0];
+                e.target.value = '';
+                if (!f) return;
+                const est = A('estadoCopia');
+                let copia;
+                try { copia = JSON.parse(await f.text()); } catch (err) { copia = null; }
+                if (!copia || copia.tipo !== 'copia-catalogo' || !Array.isArray(copia.productos)) { aviso('Ese archivo no es una copia de seguridad de este catálogo.', true); return; }
+                if (!confirm(`Esta copia tiene ${copia.productos.length} productos. Se agregarán los que no estén ya en tu catálogo (los que tengan el mismo título se saltan). ¿Continuar?`)) return;
+                A('btnRestaurar').disabled = true; A('btnCopia').disabled = true;
+                try {
+                    await cargarTodo();
+                    const nombres = new Map(listaDin.map((p) => [p.nombre.trim().toLowerCase(), p.id]));
+                    const mapa = {};   // id de la copia → id actual
+                    let nuevos = 0, i = 0;
+                    const ordenados = [...copia.productos].sort((a, b) => (a.creado || 0) - (b.creado || 0));
+                    for (const p of ordenados) {
+                        est.textContent = `Restaurando… ${++i} de ${ordenados.length}`;
+                        const clave = String(p.nombre || '').trim().toLowerCase();
+                        if (nombres.has(clave)) { mapa[p.id] = nombres.get(clave); continue; }
+                        const r = await api('/productos', { method: 'POST', body: JSON.stringify({ nombre: p.nombre, desc: p.desc, precio: p.precio, cat: p.cat, nuevas: p.imgs }) });
+                        mapa[p.id] = r.id; nombres.set(clave, r.id); nuevos++;
+                    }
+                    const aj = copia.ajustes || {};
+                    const mapear = (id) => mapa[id] || id;
+                    const precios = {};
+                    for (const [k, v] of Object.entries(aj.precios || {})) precios[mapear(k)] = v;
+                    const cambios = {
+                        ocultos: [...new Set([...(ajustes.ocultos || []), ...(aj.ocultos || [])])],
+                        agotados: [...new Set([...(ajustes.agotados || []), ...(aj.agotados || []).map(mapear)])],
+                        precios: { ...precios, ...ajustes.precios },
+                    };
+                    if (aj.pago && !ajustes.pago) cambios.pago = aj.pago;
+                    if (aj.tasaModo === 'manual' && aj.tasaManual) { cambios.tasaModo = 'manual'; cambios.tasaManual = aj.tasaManual; }
+                    await guardarAjustes(cambios);
+                    est.textContent = `Listo ✓ Se restauraron ${nuevos} productos.`;
+                    aviso('Copia restaurada ✓');
+                } catch (err) {
+                    if (err.status === 401) { salir(); return; }
+                    est.textContent = '';
+                    aviso(err.message, true);
+                    cargarTodo();
+                } finally { A('btnRestaurar').disabled = false; A('btnCopia').disabled = false; }
+            });
+
+            A('lista').addEventListener('click', async (e) => {
+                const ed = e.target.closest('[data-editar]');
+                const bo = e.target.closest('[data-borrar]');
+                const ag = e.target.closest('[data-agotado]');
+                const rs = e.target.closest('[data-restaurar]');
+                const pr = e.target.closest('[data-precio]');
+                const intentar = async (btn, fn, ok) => {
+                    btn.disabled = true;
+                    try { await fn(); aviso(ok); }
+                    catch (err) { if (err.status === 401) { salir(); return; } aviso(err.message, true); btn.disabled = false; }
+                };
+                if (ed) {
+                    const p = lista.find((x) => x.id === ed.dataset.editar);
+                    if (!p) return;
+                    editandoId = p.id;
+                    A('nombre').value = p.nombre;
+                    A('desc').value = p.desc || '';
+                    A('precio').value = p.precio || '';
+                    A('cat').value = p.cat;
+                    fotosAdm = p.imgs.map((url) => ({ url }));
+                    dibujarFotos();
+                    A('tituloForm').textContent = 'Editar producto';
+                    A('subForm').textContent = 'Cambia lo que necesites y toca “Guardar cambios”.';
+                    A('btnGuardar').textContent = 'Guardar cambios';
+                    A('btnCancelar').hidden = false;
+                    A('formProducto').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                if (ag) {
+                    const id = ag.dataset.agotado;
+                    const nuevos = agotado(id) ? ajustes.agotados.filter((x) => x !== id) : [...ajustes.agotados, id];
+                    intentar(ag, () => guardarAjustes({ agotados: nuevos }), agotado(id) ? 'Ya hay existencia ✓' : 'Marcado como agotado ✓');
+                }
+                if (rs) {
+                    const id = rs.dataset.restaurar;
+                    intentar(rs, () => guardarAjustes({ ocultos: ajustes.ocultos.filter((x) => x !== id) }), 'El producto volvió al catálogo ✓');
+                }
+                if (pr) {
+                    const p = porId[pr.dataset.precio];
+                    const v = prompt(`Precio en dólares ($) de “${p.nombre}”.\nDéjalo vacío para que diga “Consultar precio”.`, String(precioDe(p)).replace(/^\$/, ''));
+                    if (v === null) return;
+                    const precios = { ...ajustes.precios };
+                    if (v.trim()) precios[p.id] = v.trim(); else delete precios[p.id];
+                    intentar(pr, () => guardarAjustes({ precios }), 'Precio guardado ✓');
+                }
+                if (bo) {
+                    const p = porId[bo.dataset.borrar];
+                    if (!p || !confirm(`¿Eliminar “${p.nombre}” del catálogo?`)) return;
+                    if (p.dinamico) {
+                        intentar(bo, async () => {
+                            await api(`/productos/${p.id}`, { method: 'DELETE' });
+                            if (editandoId === p.id) limpiarForm();
+                            await cargarTodo();
+                        }, 'Producto eliminado');
+                    } else {
+                        // Los productos fijos no se borran del todo: se ocultan y se pueden volver a mostrar.
+                        intentar(bo, () => guardarAjustes({ ocultos: [...ajustes.ocultos, p.id] }), 'Producto eliminado. Puedes volver a mostrarlo desde esta lista.');
+                    }
+                }
+            });
+
+            if (location.hash === '#admin') abrir();
+        })();
+
+
+        /* ---------- INICIO ---------- */
+        migrarYLimpiar(false);
+        renderCatalogo();
+        cargarTodo();
+    </script>
+</body>
+</html>
